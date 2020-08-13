@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}		
+		
+<!--左边导航栏-->
+<div class="oleft-nav">
+	<div class="oleft-width">
+		<div class="oleft-title">关于我们</div>
+		<ul class="oleft-nav-item" style="position:relative; margin:0px;padding:0px;">
+			<li><a href="{% url 'web:aboutus' %}">公司简介</a></li>
+			<li><a href="{% url 'web:aboutrange' %}">业务范围</a></li>
+			<li><a href="{% url 'web:aboutyunji' %}">关于云际</a></li>
+		</ul>
+	</div>
+</div>
+		
+<!---右边内容部分-->
+<div class="oright-width">
+	<div class="oright-title">网站首页&nbsp;&gt;&nbsp;关于我们&nbsp;&gt;&nbsp;公司简介</div>
+	<div class="oright-content">
+		<p class="ocontent-main">
+		西安云际环保科技发展有限公司成立于2018年11月，是一家专业从事环境咨询服务的综合性公司，公司位于陕西省西安市经济技术开发区凤城二路海璟国际公寓。公司成立虽晚，但技术队伍实力雄厚，技术人员均为大型环评机构技术骨干，从业经验丰富，专业技术能力过硬。公司现有高级工程师2人，中级工程师3人，注册环境影响评价师2人，其他服务人员3人；同时具备完善的计算机网络系统、档案管理系统和文件和图档的数字化处理能力，工作质量保证体系健全。<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司自成立以来，严格按照国家、陕西省的有关法律法规及相关规定指导各项业务，实行标准化、制度化、规范化的管理；同时我们秉承“法规符合、管理规范、追求卓越、客户与相关方满意”的原则，对客户承诺，对行业负责，在服务客户的同时，不忘初心、积极践行公司的社会责任感；尽我们最大的努力，去推广先进的环保技术和环保理念，为社会可持续发展和环境保护事业，贡献更多的力量。<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;未来的“云际”，将会加倍努力拓展市场，同时，我们也有实力和信心圆满完成各项业务，满足客户的评价需求,以高质量的评价报告来实现我们的庄严承诺，成为最受社会和客户信赖的环保企业。
+		</p>
+	</div>
+</div>
+
+{% endblock main %}	

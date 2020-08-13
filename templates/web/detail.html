@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}
+
+<!--左边导航栏-->
+<div class="oleft-nav">
+	<div class="oleft-width">
+		<div class="oleft-title">{{ post.category }}</div>
+	</div>
+</div>
+
+<!---右侧内容-->
+<div class="oright-width">
+	<div class="oright-title">{{ post.category }}&nbsp;&gt;&nbsp;文章正文</div>
+	<div class="oright-content" style="height: 100%;">
+
+		<!---文章部分-->
+		<div class="ocontent-aboutyunji">
+			<article class="post post-{{ post.pk }}">
+
+				<header class="oentry-header">
+					<h2 class="oentry-title">{{ post.title }}</h2>
+					<div class="oentry-meta">
+						<time datetime="{{ post.created_time }}">发表日期：{{ post.created_time }}</time>
+					</div>
+				</header>
+
+				<div class="oentry-content">{{ post.body |safe }}</div>
+
+				</header>
+			</article>
+		</div>
+
+		<div>
+			上一篇：<br/>
+			下一篇：<br/>
+			返回顶部
+		</div>
+	</div>
+</div>
+		
+{% endblock main %}	

@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*index 公司简介*/
+.left-title{width:700px;float:left;height:25px;overflow:hidden;}
+
+/*index 更多*/
+.right-title{width:100px;float:right;height:25px;text-align:right;overflow:hidden;
+			padding-right:10px;font-weight:bold;line-height:25px;}
+.right-title>a{text-decoration:none;color:#16437E;}
+.right-content-title{width:65px;float:right;overflow:hidden;height:25px;text-align:right;
+			padding-right:10px;font-weight:bold;line-height:25px;}
+.right-content-title>a{text-decoration:none;color:#16437E;}
+
+/*index 横线*/
+.title-long{width:1000px;height:32px;overflow:hidden;background:url(../images/line.png) bottom repeat-x;}
+.title-short-1{width:450px;height:32px;overflow:hidden;background:url(../images/line.png) bottom repeat-x;}
+.title-short-2{width:500px;height:32px;overflow:hidden;background:url(../images/line.png) bottom repeat-x;}
+
+/*index 服务项目*/
+.service-title{padding-left:10px;color:#16437E;font-weight:bold;}
+.service-content{background-color:#F5F9FC;padding:5px;}
+.service-miaoshu{padding:10px; padding-bottom: 10px; padding-right:0px; line-height: 180%;text-indent: 20px;}
+.about-us{text-indent: 30px; line-height: 200%; padding: 10px; padding-top: 0px; margin-top: 0px;}
+
+/* index 成功案例、行业资讯、文件下载 */
+.left-content{width:450px; float: left;}
+.right-content{width:500px; float: right;}
+.left-content-title{width: 350px;float: left; height: 25px; overflow: hidden;}
+.recent-content ul{margin: 0px; padding: 0px; padding-left: 5px; list-style-position: inside; list-style-type: none;}
+.recent-content ul li{position: relative; line-height: 200%; margin-bottom: 10px; text-indent:15px;
+	background: url("../images/dot.png") left no-repeat, url("../images/sline.png") bottom repeat-x;}
+.recent-content ul a{ text-decoration: none; color:black; }
+.recent-content ul a:hover{color: #16437E;}
+.recent-content li .list-title{ overflow:hidden;}
+.recent-content li .list-time{float: right; padding-right: 5px;}

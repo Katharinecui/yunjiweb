@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}		
+		
+<!--左边导航栏-->
+<div class="oleft-nav">
+    <div class="oleft-width">
+        <div class="oleft-title">关于我们</div>
+        <ul class="oleft-nav-item" style="position:relative; margin:0px;padding:0px;">
+            <li><a href="{% url 'web:aboutus' %}">公司简介</a></li>
+            <li><a href="{% url 'web:aboutrange' %}">业务范围</a></li>
+            <li><a href="{% url 'web:aboutyunji' %}">关于云际</a></li>
+        </ul>
+    </div>
+</div>
+		
+<!---右边内容部分-->
+<div class="oright-width">
+    <div class="oright-title">网站首页&nbsp;&gt;&nbsp;关于我们&nbsp;&gt;&nbsp;公司简介</div>
+    <div class="oright-content">
+        <p class="ocontent-aboutyunji">
+            <br/>
+            我们是一群积极向上、不安于现状的人<br/>
+            我们是一群精力旺盛、充满斗志的人<br/>
+            我们是一群有着共同的理想和奋斗目标的人<br/>
+            <br/>
+            于是，我们带着年轻创业者开拓进取的精神<br/>
+            成立了属于我们的“云际”<br/>
+            曾经的努力，为今天奠定了基石<br/>
+            不断奋斗，将造就我们辉煌的未来<br/>
+        </p>
+    </div>
+</div>
+
+{% endblock main %}	

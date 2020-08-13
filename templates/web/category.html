@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}	
+
+{% for post in post_list %}
+
+	{% if forloop.first %}
+		<!--左边导航栏-->
+		<div class="oleft-nav">
+			<div class="oleft-width">
+				<div class="oleft-title">{{ post.category }}</div>
+			</div>
+		</div>
+	{% else %}
+	{% endif %}
+
+{% endfor %}
+
+<!--右边内容部分-->
+<div class="oright-width">
+
+	<div class="oright-title"></div>
+
+	<div class="orecent-content" style="margin-top:10px;">
+		<ul>
+			{% for post in post_list %}
+			<a href="{{ post.get_absolute_url }}"><li>
+			<span class="list-title">{{ post.title }}</span>
+			<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
+			</li></a>	
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div>
+		翻页
+	</div>
+</div>
+
+{% endblock main %}	

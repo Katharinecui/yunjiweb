@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}
+
+<!--公司简介-->
+<div>
+	<!--头部-->
+	<div class="title-long">
+		<div class="left-title"><img src="{% static 'web/images/presentation.gif' %}" width="194" height="25" alt=""/></div>
+		<div class="right-title"><a href="{% url 'web:aboutus' %}">更多&nbsp;&gt;&gt;</a></div>
+		<div class="cl"></div>
+		<!--<div><img src="images/6.17_08.gif" width="990" height="6" alt=""/></div>-->
+	</div>
+
+	<!--内容-->
+	<div class="about-us">
+		<p>
+		西安云际环保科技发展有限公司成立于2018年11月，是一家专业从事环境咨询服务的综合性公司，公司位于陕西省西安市经济技术开发区
+		凤城二路海璟国际公寓。公司成立虽晚，但技术队伍实力雄厚，技术人员均为大型环评机构技术骨干，从业经验丰富，专业技术能力过硬。
+		公司现有高级工程师2人，中级工程师3人，注册环境影响评价师2人，其他服务人员3人；同时具备完善的计算机网络系统、档案管理系统和
+		文件和图档的数字化处理能力，工作质量保证体系健全&nbsp;......
+		</p>
+	</div>	
+
+</div>
+
+<!--服务项目-->
+<div>
+	<!--头部-->
+	<div class="left-title"><img src="{% static 'web/images/project.gif' %}" width="154" height="25" alt=""/></div>
+	<div class="right-title"><a href="{% url 'web:service' %}">更多&nbsp;&gt;&gt;</a></div>
+	<div class="cl" style="padding-bottom: 10px;"></div>
+	
+	<!--内容-->
+	<div class="service-content">
+		<table width="970" border="0" cellspacing="0" cellpadding="0" style="margin: 10px 10px;">
+			<tbody>
+				<tr>
+					<td width="120"><img src="{% static 'web/images/project01.jpg' %}" width="120" height="120" alt=""/></td>
+					<td width="180" align="left" valign="top">
+						<div class="service-title">环保管家</div>
+						<div class="service-miaoshu" style="text-align: justify;">“测、管、治”样样精通，专业提供一站式服务，是能够量身定制解决方案&nbsp;......</div>
+						<!--<div class="service-more"><a href="service01.html" >更多 &gt;&gt;</a></div>-->
+					</td>
+					<td width="30" height="120">&nbsp;</td>
+					<td width="120"><img src="{% static 'web/images/project02.jpg' %}" width="120" height="120" alt=""/></td>
+					<td width="180" align="left" valign="top">
+						<div class="service-title">环境影响评价</div>
+						<div class="service-miaoshu" style="text-align: justify;">环评是指对规划和建设项目实施后可能造成的环境影响进行分析、预测和评估&nbsp;......</div>
+						<!--<div class="service-more"><a href="service02.html" >更多 &gt;&gt;</a></div>-->
+					</td>
+					<td width="30">&nbsp;</td>
+					<td width="120"><img src="{% static 'web/images/project03.jpg' %}" width="120" height="120" alt=""/></td>
+					<td width="180" align="left" valign="top">
+						<div class="service-title">清洁生产</div>
+						<div class="service-miaoshu" style="text-align: justify;">清洁生产是指将综合预防的环境保护策略持续应用于生产过程和产品中&nbsp;......</div>
+						<!--<div class="service-more"><a href="service03.html" >更多 &gt;&gt;</a></div>-->
+					</td>
+				</tr>
+				<tr>
+					<td colspan="8" height="10"></td>
+				</tr>
+				<tr>
+					<td><img src="{% static 'web/images/project04.jpg' %}" width="120" height="120" alt=""/></td>
+					<td width="180">
+						<div class="service-title" style="padding-top:10px;">环保技术资讯</div>
+						<div class="service-miaoshu" style="text-align: justify; height: 110px;">为建设项目提供全方位环保技术咨询服务&nbsp;......</div>
+						<!--<div class="service-more"><a href="service04.html" >更多 &gt;&gt;</a></div>-->
+					</td>
+					<td height="120">&nbsp;</td>
+					<td><img src="{% static 'web/images/project05.jpg' %}" width="120" height="120" alt=""/></td>
+					<td width="180">
+						<div class="service-title">土壤调查</div>
+						<div class="service-miaoshu" style="text-align: justify;">建设用地出现异常点，该如何排查？如何检测地下水？污染检测有哪些要求？针对土壤污染状况调查&nbsp;......</div>
+						<!-- <div class="service-more"><a href="service05.html" >更多 &gt;&gt;</a></div> -->
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="web-blank"></div>
+</div>
+
+<!--左边栏-->
+<div class="left-content">
+
+	<!--成功案例 begin-->
+	<!--头部-->
+	<div class="title-short-1">
+		<div class="left-content-title"><img src="{% static 'web/images/case.gif' %}" width="139" height="25" alt=""/></div>
+		<div class="right-content-title"><a href="{% url 'web:category' pk=2 %}">更多&nbsp;&gt;&gt;</a></div>
+		<div class="cl"></div>
+		<!--<div><img src="images/6.17_16.gif" width="451" height="7" alt=""/></div>-->
+	</div>
+
+	<!--内容-->
+	<div class="recent-content" style="margin-top:10px;">
+		{% get_recent_case_posts as recent_case_list %}
+		<ul>
+			{% for post in recent_case_list %}
+			<a href="{{ post.get_absolute_url }}"><li>
+				<span class="list-title">{{ post.title }}</span>
+				<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
+			</li></a>
+			{% empty %}
+			暂无案例！
+			{% endfor %}
+		</ul>
+		<div class="web-blank"></div>
+	</div>
+	<!--成功案例 end-->
+
+	<!--文件下载 begin-->
+	<!--头部-->
+	<div class="title-short-1">
+		<div class="left-content-title"><img src="{% static 'web/images/download.gif' %}" width="167" height="25" alt=""/></div>
+		<div class="right-content-title"><a href="{% url 'web:category' pk=4 %}">更多&nbsp;&gt;&gt;</a></div>
+		<div class="cl"></div>
+		<!--<div><img src="images/6.17_16.gif" width="451" height="7" alt=""/></div>-->
+	</div>
+
+	<!--内容-->
+	<div class="recent-content" style="margin-top:10px;">
+		{% get_recent_download_posts as recent_download_list %}
+		<ul>
+			{% for post in recent_download_list %}
+			<a href="{{ post.get_absolute_url }}"><li>
+				<span class="list-title">{{ post.title }}</span>
+				<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
+			</li></a>
+			{% empty %}
+			暂无下载！
+			{% endfor %}
+		</ul>
+		<div class="web-blank"></div>
+	</div>
+	<!--文件下载 end-->
+
+</div>
+	
+<!--右边栏-->
+<div class="right-content">
+
+	<!--行业资讯 begin-->
+	<!--头部-->
+	<div class="title-short-2">
+		<div class="left-content-title"><img src="{% static 'web/images/information.gif' %}" width="187" height="25" alt=""/></div>
+		<div class="right-content-title"><a href="{% url 'web:category' pk=3 %}">更多&nbsp;&gt;&gt;</a></div>
+		<div class="cl"></div>
+		<!--<div><img src="images/6.17_16.gif" width="500" height="7" alt=""/></div>-->
+	</div>
+	
+	<!--内容-->	
+	<div class="recent-content" style="margin-top:10px;">
+		{% get_recent_information_posts as recent_information_list %}
+		<ul>
+			{% for post in recent_information_list %}
+			<a href="{{ post.get_absolute_url }}"><li>
+				<span class="list-title">{{ post.title }}</span>
+				<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
+			</li></a>
+			{% empty %}
+			暂无资讯！
+			{% endfor %}
+		</ul>
+		<div class="web-blank"></div>
+	</div>
+	<!--行业资讯 end-->
+	
+	<!--友情链接 begin-->
+	<div>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-left:7px; padding-right: 5px;">
+			<tbody>
+				<tr>
+					<td width="150" height="50"><a href="http://www.china-eia.com/" target="_blank"><img src="{% static 'web/images/link01.jpg' %}" width="150" height="50" alt=""/></a></td> 
+					<td width="20"></td>
+					<td width="150"><a href="http://permit.mee.gov.cn/" target="_blank"><img src="{% static 'web/images/link02.jpg' %}" width="150" height="50" alt=""/></a></td>
+					<td width="20"></td>
+					<td width="150"><a href="#" target="_blank"><img src="{% static 'web/images/link03.jpg' %}" width="150" height="50" alt=""/></a></td>
+				</tr>
+				<tr>
+					<td colspan="5" height="10"></td>
+				</tr>
+				<tr>
+					<td height="50"><a href="http://www.huanbaogj.cn/" target="_blank"><img src="{% static 'web/images/link04.jpg' %}" width="150" height="50" alt=""/></a></td>
+					<td>&nbsp;</td>
+					<td><a href="http://www.mee.gov.cn/" target="_blank"><img src="{% static 'web/images/link05.jpg' %}" width="150" height="50" alt=""/></a></td>
+					<td>&nbsp;</td>
+					<td><a href="http://www.caepi.org.cn/" target="_blank"><img src="{% static 'web/images/link06.jpg' %}" width="150" height="50" alt=""/></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--友情链接 end-->
+
+</div>
+		
+{% endblock main %}

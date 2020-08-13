@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}		
+		
+<!--左边导航栏-->
+<div class="oleft-nav">
+	<div class="oleft-width">
+		<div class="oleft-title">服务项目</div>
+		<ul class="oleft-nav-item" style="position:relative; margin:0px;padding:0px;">
+			<li><a href="{% url 'web:service' %}">环保管家</a></li>
+			<li><a href="{% url 'web:sereva' %}">环境影响评价、竣工环境保护验收</a></li>
+			<li><a href="{% url 'web:serproduction' %}">清洁生产</a></li>
+			<li><a href="{% url 'web:serask' %}">环保技术咨询</a></li>
+			<li><a href="{% url 'web:serdes' %}">土壤环境污染调查</a></li>
+		</ul>
+	</div>
+</div>
+
+<!---右边内容部分-->
+<div class="oright-width">
+	<div class="oright-title">网站首页&nbsp;&gt;&nbsp;服务项目&nbsp;&gt;&nbsp;环境影响评价、竣工环境保护验收</div>
+	<div class="oright-content">
+		<p class="ocontent-main">
+			环境影响评价简称环评，英文缩写EIA，即&nbsp;Environmental Impact Assessment，是指对规划和建设项目实施后可能造成的环境影
+			响进行分析、预测和评估，提出预防或者减轻不良环境影响的对策和措施，进行跟踪监测的方法与制度。通俗说就是分析项目建成投产后
+			可能对环境产生的影响，并提出污染防治对策和措施。<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;环境是指影响人类生存和发展的各种天然的和经过人工改造的自然因素的总体，包括大
+			气、水、海洋、土地、矿藏、森林、草原、野生生物、自然遗迹、人文遗迹、自然保护区、风景名胜区、城市和乡村等。 环境有自然环境
+			和社会环境之分。自然环境是社会环境的基础，社会环境又是自然环境的发展。
+		</p>
+	</div>
+</div>
+
+{% endblock main %}	

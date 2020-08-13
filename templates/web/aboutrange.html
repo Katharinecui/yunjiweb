@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}		
+		
+<!--左边导航栏-->
+<div class="oleft-nav">
+	<div class="oleft-width">
+		<div class="oleft-title">关于我们</div>
+		<ul class="oleft-nav-item" style="position:relative; margin:0px;padding:0px;">
+			<li><a href="{% url 'web:aboutus' %}">公司简介</a></li>
+			<li><a href="{% url 'web:aboutrange' %}">业务范围</a></li>
+			<li><a href="{% url 'web:aboutyunji' %}">关于云际</a></li>
+		</ul>
+	</div>
+</div>
+		
+<!---右边内容部分-->
+<div class="oright-width">
+	<div class="oright-title">网站首页&nbsp;&gt;&nbsp;关于我们&nbsp;&gt;&nbsp;业务范围</div>
+	<div class="oright-content">
+		<p class="ocontent-main">
+		公司业务范围为：环境影响评价；环保设施竣工验收；环境保护工程设计、施工；污水处理工程的设计、施工、技术服务；环保技术咨询、技术服务；土壤、环境污染的监测、调查、治理；建设项目可行性研究报告；地质灾害危险性评估；节能评估；土地预审、复垦、勘界报告编制；耕地质量评估；土地整理。
+		</p>
+	</div>
+</div>
+
+{% endblock main %}	

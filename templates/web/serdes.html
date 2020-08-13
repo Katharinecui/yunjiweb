@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load web_tags %}
+
+{% block main %}		
+		
+<!--左边导航栏-->
+<div class="oleft-nav">
+    <div class="oleft-width">
+        <div class="oleft-title">服务项目</div>
+        <ul class="oleft-nav-item" style="position:relative; margin:0px;padding:0px;">
+            <li><a href="{% url 'web:service' %}">环保管家</a></li>
+            <li><a href="{% url 'web:sereva' %}">环境影响评价、竣工环境保护验收</a></li>
+            <li><a href="{% url 'web:serproduction' %}">清洁生产</a></li>
+            <li><a href="{% url 'web:serask' %}">环保技术咨询</a></li>
+            <li><a href="{% url 'web:serdes' %}">土壤环境污染调查</a></li>
+        </ul>
+    </div>
+</div>
+
+<!---右边内容部分-->
+<div class="oright-width">
+    <div class="oright-title">网站首页&nbsp;&gt;&nbsp;服务项目&nbsp;&gt;&nbsp;土壤环境污染调查</div>
+    <div class="oright-content">
+        <p class="ocontent-main">
+            建设用地出现异常点，该如何排查？如何检测地下水？污染检测有哪些要求？针对土壤污染状况调查出现的相关问题，市生态环境局日前出台
+            专门指引，进一步指导和规范全市土壤污染状况调查相关工作，保障我市建设用地再开发利用环境安全。根据“谁开发，谁保护，谁污染，谁治
+            理”原则，污染地块的土壤环境调查和风险评估、风险管控或治理与修复及其效果评估等相关工作，由地块土地使用权人委托第三方开展，生态
+            环境部门加强指导服务，并积极引导土壤污染防治第三方市场发展。在第三方市场对建设用地土壤污染状况调查过程中，出现了隐患排查、风
+            险评估、地下水采用等问题，不利于准确、完整地作出土壤污染状况评估报告。
+        </p>
+    </div>
+</div>
+
+{% endblock main %}	

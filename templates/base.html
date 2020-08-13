@@ -1,0 +1,128 @@
+{% load staticfiles %}
+{% load web_tags %}
+
+<!doctype html>
+<html>
+	<head>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<title>西安云际环保科技有限公司</title>
+
+		<!-- css --> 
+		<link href="{% static 'web/css/base.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'web/css/index_content.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'web/css/other_content.css' %}" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+
+		<!--logo-->
+		<div class="web-width"><img src="{% static 'web/images/logo.gif' %}" width="1000" height="115" alt=""/></div>
+        
+        
+		<!-- 导航栏 begin -->
+		<div class="nav">
+			<div class="web-width">
+				<ul class="nav-item" style="position:relative; margin:0px; padding-left: 4px;">
+					<li><a href="{% url 'web:index' %}">首&nbsp;&nbsp;&nbsp;页</a></li>
+					<li><a href="{% url 'web:aboutus' %}">公司简介</a></li>
+					<li><a href="{% url 'web:service' %}">服务项目</a></li>
+					<li><a href="{% url 'web:category' pk=2 %}">成功案例</a></li>
+					<li><a href="{% url 'web:category' pk=5 %}">项目公示</a></li>
+					<li><a href="{% url 'web:category' pk=3 %}">行业资讯</a></li>
+					<li><a href="{% url 'web:category' pk=4 %}">文件下载</a></li>
+					<li><a href="{% url 'web:contact' %}">联系我们</a></li>
+				</ul>
+			</div>
+		</div>
+        <!-- 导航栏 end -->
+        
+
+		<!--网页内容部分 begin -->
+		<div class="web-width">
+
+			<!-- 轮播图片-->
+			<div class="photo-box">
+				<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
+					<li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
+					<li><img src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
+					<li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
+				</ul>
+				<!-- 左右切换 -->
+				<div class="left-botton indexs" id="left-botton">&lt;</div>
+				<div class="right-botton indexs" id="right-botton">&gt;</div>
+				<div class="web-blank"></div>	
+			</div>
+			
+			<!-- js -->
+			<script type="text/javascript">	
+				var imgs = document.getElementById("photo-ul").children; // 找到所有轮播li
+				var leftbotton = document.getElementById("left-botton");
+				var rightbotton = document.getElementById("right-botton");
+				var index = 0;
+				var dingshiqi;
+				chongqi();
+				function chongqi(){
+					dingshiqi = setInterval(function(){
+						index++;
+						if(index==imgs.length){
+							index=0;
+						}
+						for(var i=0;i<imgs.length;i++){
+							imgs[i].style.cssText="z-index:0;";
+						}
+						imgs[index].style.cssText="z-index:100;";
+					},2000);
+				}
+				leftbotton.onclick=function(){
+					clearInterval(dingshiqi);
+					index--;
+					if(index<0){
+						index=imgs.length-1;
+					}
+					for(var i=0;i<imgs.length;i++){
+						imgs[i].style.cssText="z-index:0;";
+					}
+					imgs[index].style.cssText="z-index:100;";
+					chongqi();
+				}
+				rightbotton.onclick=function(){
+					clearInterval(dingshiqi);
+					index++;
+					if(index>imgs.length-1){
+						index=0;
+					}
+					for(var i=0;i<imgs.length;i++){
+						imgs[i].style.cssText="z-index:0;";
+					}
+					imgs[index].style.cssText="z-index:100;";
+					chongqi();
+				}
+			</script>
+            
+            <!-- 内容填充  begin -->
+            {% block main %}
+            {% endblock main %}
+			<!-- 内容填充  end -->
+
+        </div>
+        <!--网页内容部分 end -->
+        
+        
+		<!-- 网页底部信息 begin -->
+		<div class="cl"></div>
+        <div class="web-blank"></div>
+		<div class="foot">
+			<div class="web-width">
+				<div class="foot-content">
+				<br>
+				地址：陕西省西安市经济技术开发区凤城二路海璟国际&nbsp;&nbsp;&nbsp;&nbsp;电话：15829617767&nbsp;&nbsp;&nbsp;&nbsp;网址：www.xayunjihb.cn <br>
+				CopyRight&nbsp;&nbsp;xayunjihb.cn&nbsp;版权所有&nbsp;©2020-2021 All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;陕ICP备200112704号
+				</div>
+			</div>
+		</div>
+        <!-- 网页底部信息 end -->
+
+
+	</body>
+</html>
