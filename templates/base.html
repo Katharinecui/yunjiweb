@@ -44,9 +44,9 @@
 			<!-- 轮播图片-->
 			<div class="photo-box">
 				<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
+					<li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
 					<li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
 					<li><img src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
-					<li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
 				</ul>
 				<!-- 左右切换 -->
 				<div class="left-botton indexs" id="left-botton">&lt;</div>
@@ -72,7 +72,7 @@
 							imgs[i].style.cssText="z-index:0;";
 						}
 						imgs[index].style.cssText="z-index:100;";
-					},2000);
+					},5000);
 				}
 				leftbotton.onclick=function(){
 					clearInterval(dingshiqi);

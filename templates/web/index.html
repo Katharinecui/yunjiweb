@@ -160,10 +160,12 @@
 		{% get_recent_information_posts as recent_information_list %}
 		<ul>
 			{% for post in recent_information_list %}
-			<a href="{{ post.get_absolute_url }}"><li>
-				<span class="list-title">{{ post.title }}</span>
-				<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
-			</li></a>
+			<a href="{{ post.get_absolute_url }}">
+				<li>
+					<span class="list-title">{{ post.title }}</span>
+					<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
+				</li>
+			</a>
 			{% empty %}
 			暂无资讯！
 			{% endfor %}
