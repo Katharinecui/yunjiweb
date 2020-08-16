@@ -30,15 +30,15 @@
 .right-content-title{width:65px;float:right;overflow:hidden;height:25px;text-align:right;
 	padding-right:10px;font-weight:bold;line-height:25px;}
 .right-content-title>a{text-decoration:none;color:#16437E;}
+
 /* 文章列表 */
-.recent-content ul{margin: 0px; padding: 0px; padding-left: 5px; list-style-position: inside; list-style-type: none;}
-/* 列表单行样式 */
-.recent-content ul li{position: relative; line-height: 200%; margin-bottom: 10px; text-indent:15px;
-	background: url("../images/dot.png") left no-repeat, url("../images/sline.png") bottom repeat-x;}
-/* 链接样式 */
+.recent-content ul{margin: 0px; padding: 0px;  list-style-type: none;}
+/* 列表单行样式 background: url("../images/dot.png") left no-repeat, url("../images/sline.png") bottom repeat-x; */
+.recent-content ul li{position: relative; margin-bottom: 10px; border-bottom: 1px dashed #c5c5c5;}
+/* 列表链接样式 */
 .recent-content ul a{ text-decoration: none; color:black;}
 .recent-content ul a:hover{color: #16437E;}
-/*单行超出限制缩进*/
-.recent-content ul a li{overflow:hidden; white-space: nowrap; text-overflow:ellipsis}
-.recent-content ul a li .list-title{overflow:hidden;}
-.recent-content li .list-time{float: right; padding-right: 5px;}
+/* 单行的标题和时间设定  overflow:hidden; white-space: nowrap; text-overflow:ellipsis;*/
+.list-title{display: inline-block; width:70%; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;
+	background: url("../images/dot.png") left no-repeat; padding-left:13px;}
+.list-time{display: inline-block; width: auto; padding-right: 10px; text-align: right; float: right;}

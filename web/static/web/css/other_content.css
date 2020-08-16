@@ -28,9 +28,8 @@
 .ocontent-aboutyunji{ line-height: 200%;padding:0px;margin-top: 0px;}
 
 /*右边条目*/
-.orecent-content ul{margin: 0px; padding: 0px; padding-left: 5px; list-style-position: inside; list-style-type: none;}
-.orecent-content ul li{position: relative; line-height: 200%; margin-bottom: 10px; text-indent:15px;
-	background: url("../images/dot.png") left no-repeat, url("../images/sline.png") bottom repeat-x;}
+.orecent-content ul{margin: 0px; padding: 0px; padding-left: 5px; list-style-type: none;}
+.orecent-content ul li{position: relative; line-height: 200%; margin-bottom: 10px; border-bottom: 1px dashed #c5c5c5;}
 .orecent-content ul a{ text-decoration: none; color:black; }
 .orecent-content ul a:hover{color: #16437E;}
 .orecent-content li .list-title{overflow:hidden;}
