@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from mdeditor.fields import MDTextField
 
 # Create your models here.
 class Category(models.Model):
@@ -20,7 +21,7 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=70)
 
-    body = models.TextField()
+    body = MDTextField()
 
     created_time = models.DateTimeField()
     modified_time = models.DateTimeField()
