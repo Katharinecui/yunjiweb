@@ -2,6 +2,7 @@ import markdown
 
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Category 
+from django.views.generic import ListView # 类视图函数
 
 # Create your views here.
  
@@ -39,11 +40,22 @@ def serask(request):
 def serdes(request):
     return render(request, 'web/serdes.html')
 
-def category(request, pk): 
+"""def category(request, pk): 
     # 成功案例、新闻资讯、文件下赞、项目公示的单页
     cate = get_object_or_404(Category, pk=pk)
     post_list = Post.objects.filter(category=cate).order_by('-created_time')
-    return render(request, 'web/category.html', context={'post_list': post_list})
+    return render(request, 'web/category.html', context={'post_list': post_list})"""
+
+class CategoryView(ListView):
+    model = Post
+    template_name = 'web/category.html'
+    context_object_name = 'post_list'
+    # 指定 paginate_by 属性后开启分页功能，其值代表每一页包含多少篇文章
+    paginate_by = 10
+
+    def get_queryset(self):
+        cate = get_object_or_404(Category, pk=self.kwargs.get('pk'))
+        return super(CategoryView, self).get_queryset().filter(category=cate).order_by('-created_time')
 
 def contact(request):
     return render(request, 'web/contact.html')

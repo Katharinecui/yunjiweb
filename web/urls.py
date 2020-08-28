@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'serproduction', views.serproduction, name='serproduction'),
     url(r'serask', views.serask, name='serask'),
     url(r'serdes', views.serdes, name='serdes'),
-    url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),
+    # url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),
+    url(r'^category/(?P<pk>[0-9]+)/$', views.CategoryView.as_view(), name='category'),
     url(r'contact', views.contact, name='contact'),
 ]
