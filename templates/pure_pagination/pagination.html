@@ -1,0 +1,25 @@
+<div style="margin-top: 15px; float: right; word-spacing:10px;">
+    {% if page_obj.has_previous %}
+    <a href="?{{ page_obj.previous_page_number.querystring }}" style="text-decoration:none;">上一页</a>
+    {% else %}
+    <span style="text-decoration:none;">上一页 </span>
+    {% endif %}
+
+    {% for page in page_obj.pages %} 
+        {% if page %}
+        {% ifequal page page_obj.number %}
+        <a href="#" style="text-decoration:none;">{{ page }}</a>
+        {% else %}
+        <a href="?{{ page.querystring }}" style="text-decoration:none;">{{ page }}</a>
+        {% endifequal %}
+        {% else %}
+        ...
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %} <!--是否有下一页-->
+    <a href="?{{ page_obj.next_page_number.querystring }}" style="text-decoration:none;"> 下一页</a>
+    {% else %}
+    <span style="text-decoration:none;"> 下一页</span>
+    {% endif %}
+</div>

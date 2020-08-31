@@ -3,6 +3,7 @@ import markdown
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Category 
 from django.views.generic import ListView # 类视图函数
+from pure_pagination.mixins import PaginationMixin
 
 # Create your views here.
  
@@ -46,7 +47,7 @@ def serdes(request):
     post_list = Post.objects.filter(category=cate).order_by('-created_time')
     return render(request, 'web/category.html', context={'post_list': post_list})"""
 
-class CategoryView(ListView):
+class CategoryView(PaginationMixin, ListView):
     model = Post
     template_name = 'web/category.html'
     context_object_name = 'post_list'
