@@ -7,11 +7,33 @@
 <!---内容部分-->	
 <div class="oright-title">网站首页&nbsp;&gt;&nbsp;联系我们</div>
 <div class="oright-content" style="height: 200px;">
-	<p class="ocontent-aboutyunji" style="padding-top: 20px; padding-left: 10px;">
-		联系方式：15829617767<br/>
-		邮箱：yunjihuanbao@yeah.net<br/>
-		地址：陕西省西安经济开发区凤城二路海璟国际3幢1单元12层1207室<br/>
-	</p>
+	<div style="float:left;">
+		<p class="ocontent-aboutyunji" style="margin-top:100px; margin-left:30px; width:450px;">
+			联系方式：15829617767<br/>
+			邮箱：yunjihuanbao@yeah.net<br/>
+			地址：陕西省西安经济开发区凤城二路海璟国际3幢1单元12层1207室<br/>
+		</p>
+	</div>
+	<div id="address" style="height:300px; width:450px; float:right; margin-right:30px; margin-top:20px;"></div>
 </div>
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=49924bd4232e99619fe9ce8dc1cb5f7a"></script> 
+<script>
+	//初始化地图插件
+	window.onload = function(){
+		var map = new AMap.Map('address', {
+			zoom: 18,
+			center: [108.939224, 34.316582]
+		});
+
+		//设置图标标记
+		var marker = new AMap.Marker({
+			position: new AMap.LngLat(108.939224, 34.316582),
+			title: '测试地址'
+        });
+
+		map.add(marker);
+	}
+</script>
 
 {% endblock main %}
