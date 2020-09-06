@@ -4,6 +4,18 @@
 
 {% block main %}
 
+<!-- 轮播图片 -->
+<div class="photo-box">
+	<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
+		<li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
+		<li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
+		<li><img src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
+	</ul>
+	<!-- 左右切换  -->
+	<div class="left-botton indexs" id="left-botton">&lt;</div>
+	<div class="right-botton indexs" id="right-botton">&gt;</div>	
+</div> 
+
 <!--左边导航栏-->
 <div class="oleft-nav">
 	<div class="oleft-width">
@@ -40,5 +52,55 @@
 		</div>
 	</div>
 </div>
-		
+	
+<!-- js -->
+<script type="text/javascript">	
+	var imgs = document.getElementById("photo-ul").children; // 找到所有轮播li
+	var leftbotton = document.getElementById("left-botton");
+	var rightbotton = document.getElementById("right-botton");
+	var index = 0;
+	var dingshiqi;
+	chongqi();
+	function chongqi(){
+		dingshiqi = setInterval(function(){
+			index++;
+			if(index==imgs.length){
+				index=0;
+			}
+			for(var i=0;i<imgs.length;i++){
+				imgs[i].style.cssText="z-index:0;";
+			}
+			imgs[index].style.cssText="z-index:100;";
+		},5000);
+	}
+	leftbotton.onclick=function(){
+		clearInterval(dingshiqi);
+		index--;
+		if(index<0){
+			index=imgs.length-1;
+		}
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].style.cssText="z-index:0;";
+		}
+		imgs[index].style.cssText="z-index:100;";
+		chongqi();
+	}
+	rightbotton.onclick=function(){
+		clearInterval(dingshiqi);
+		index++;
+		if(index>imgs.length-1){
+			index=0;
+		}
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].style.cssText="z-index:0;";
+		}
+		imgs[index].style.cssText="z-index:100;";
+		chongqi();
+	}
+</script>
+
+<script>
+	
+</script>
+
 {% endblock main %}	

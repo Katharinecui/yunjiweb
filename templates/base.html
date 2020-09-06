@@ -41,19 +41,19 @@
 		<!--网页内容部分 begin -->
 		<div class="web-width">
 
-			<!-- 轮播图片-->
+			<!-- 轮播图片
 			<div class="photo-box">
 				<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
 					<li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
 					<li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
 					<li><img src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
 				</ul>
-				<!-- 左右切换 -->
+				 左右切换 
 				<div class="left-botton indexs" id="left-botton">&lt;</div>
 				<div class="right-botton indexs" id="right-botton">&gt;</div>	
-			</div>
+			</div> -->
 			
-			<!-- js -->
+			<!-- js 
 			<script type="text/javascript">	
 				var imgs = document.getElementById("photo-ul").children; // 找到所有轮播li
 				var leftbotton = document.getElementById("left-botton");
@@ -97,7 +97,7 @@
 					imgs[index].style.cssText="z-index:100;";
 					chongqi();
 				}
-			</script>
+			</script>-->
             
             <!-- 内容填充  begin -->
             {% block main %}
@@ -120,8 +120,23 @@
 				</div>
 			</div>
 		</div>
-        <!-- 网页底部信息 end -->
-
-
+		<!-- 网页底部信息 end -->
+		
+		<!-- <script src="{% static 'web\js\jquery.min.js' %}"> </script>
+		<script>
+			$(function(){
+				$('.photo-box ul li img').eq(1).hide();
+				$('.photo-box ul li img').eq(2).hide();
+			});
+			$(".nav-item li a").click(function(){
+				var text=	$(this).text();
+				if(text="服务项目")	{
+					$('.photo-box ul li img').eq(1).show();
+					$('.photo-box ul li img').eq(0).hide();
+					$('.photo-box ul li img').eq(2).hide();
+				}
+			}); -->
+			
+		</script>
 	</body>
 </html>

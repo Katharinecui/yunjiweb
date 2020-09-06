@@ -2,7 +2,13 @@
 {% load staticfiles %}
 {% load web_tags %}
 
-{% block main %}	
+{% block main %}
+
+<div class="photo-box">
+	<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
+		<li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
+	</ul>
+</div>
 
 <!---内容部分-->	
 <div class="oright-title">网站首页&nbsp;&gt;&nbsp;联系我们</div>

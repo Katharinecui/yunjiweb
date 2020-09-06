@@ -4,6 +4,13 @@
 
 {% block main %}	
 
+<div class="photo-box">
+	<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
+		<li><img hidden src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
+		<li><img  hidden src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
+	</ul>
+</div>
+
 {% for post in post_list %}
 
 	{% if forloop.first %}
@@ -55,4 +62,16 @@
 	</div>
 </div>
 
+		 <script src="{% static 'web\js\jquery.min.js' %}"> </script>
+      
+       <script>
+		   debugger;
+		 var url=  window.location.pathname;
+		 var flag=url. slice(-2,-1);
+		if(flag==2){
+				$("#photo-ul li img").eq(0).show();
+		}else{
+			$("#photo-ul li img").eq(1).show();
+		}
+	   </script>
 {% endblock main %}	
