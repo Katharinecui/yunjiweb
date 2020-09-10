@@ -12,9 +12,15 @@ def index(request):
     return render(request, 'web/index.html', context={'post_list': post_list})
 
 def detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    post.body = markdown.markdown(post.body, extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite',
-                                                        'markdown.extensions.toc',])
+    post = get_object_or_404(Post, pk=pk) # 得到文章
+    post.body = markdown.markdown(post.body, extensions=['markdown.extensions.extra', 
+                                                        'markdown.extensions.codehilite',
+                                                        'markdown.extensions.toc',
+                                                        'markdown.extensions.tables',])
+
+    # cate = post.category # 得到分类名
+    # post_list = Post.objects.filter(category=cate).order_by('-created_time') # 筛选该分类名的所有文章，倒序排列
+   
     return render(request, 'web/detail.html', context={'post': post})
 
 def aboutus(request):
@@ -42,7 +48,7 @@ def serdes(request):
     return render(request, 'web/serdes.html')
 
 """def category(request, pk): 
-    # 成功案例、新闻资讯、文件下赞、项目公示的单页
+    # 成功案例、新闻资讯、文件下赞、项目公示的文章列表
     cate = get_object_or_404(Category, pk=pk)
     post_list = Post.objects.filter(category=cate).order_by('-created_time')
     return render(request, 'web/category.html', context={'post_list': post_list})"""
