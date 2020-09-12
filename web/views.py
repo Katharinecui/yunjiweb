@@ -11,17 +11,33 @@ def index(request):
     post_list = Post.objects.all().order_by('-created_time')
     return render(request, 'web/index.html', context={'post_list': post_list})
 
-def detail(request, pk):
+def detail(request, pk): 
     post = get_object_or_404(Post, pk=pk) # 得到文章
     post.body = markdown.markdown(post.body, extensions=['markdown.extensions.extra', 
                                                         'markdown.extensions.codehilite',
                                                         'markdown.extensions.toc',
                                                         'markdown.extensions.tables',])
 
-    # cate = post.category # 得到分类名
-    # post_list = Post.objects.filter(category=cate).order_by('-created_time') # 筛选该分类名的所有文章，倒序排列
+    cate = post.category # 得到分类名
+    
+    """
+    筛选该分类名的所有文章，倒序排列
+    查询上一篇文章
+    """
+    post_pre_lst = Post.objects.filter(category=cate).filter(id__lt=pk)
+    post_next_lst = Post.objects.filter(category=cate).filter(id__gt=pk)
    
-    return render(request, 'web/detail.html', context={'post': post})
+    if post_pre_lst.exists():
+      post_pre = post_pre_lst.order_by('-created_time').first()
+    else:
+      post_pre = post
+
+    if post_next_lst.exists():
+      post_next = post_next_lst.order_by('-created_time').last()
+    else:
+      post_next = post
+
+    return render(request, 'web/detail.html', context={'post': post, 'post_pre':post_pre, 'post_next':post_next})
 
 def aboutus(request):
     return render(request, 'web/aboutus.html')

@@ -19,7 +19,7 @@
 <!--左边导航栏-->
 <div class="oleft-nav">
   <div class="oleft-width">
-    <div class="oleft-title">{{ post.category }}</div>
+    <div class="oleft-title" id="cateVal">{{ post.category }}</div>
   </div>
 </div>
 
@@ -47,12 +47,19 @@
       </article>
     </div>
 
-    <div style="float:right; padding-right:20px; line-height:2;">
-      上一篇：
+    <div style=" padding-right:20px; line-height:2;">
+      上一篇：<a href="{{ post_pre.get_absolute_url }}" style="text-decoration: none;">
+        {{ post_pre.title }}</a>
       </br>
-      下一篇：
+      下一篇：<a href="{{ post_next.get_absolute_url }}" style="text-decoration: none;">
+        {{ post_next.title }}</a>
       </br>
-      <a href="#" style="text-decoration:none;">返回文章列表</a>
+    </div>
+    <div style=" padding-right:20px; line-height:2;">
+      <div style="float: right;">
+        <a href="javascript:void(0)" onclick="changeUrl()" ; style="text-decoration:none;">返回文章列表</a>
+      </div>
+
     </div>
   </div>
 </div>
@@ -114,6 +121,31 @@
     }
     imgs[index].style.cssText = "z-index:100;";
     chongqi();
+  }
+  /**
+   * 返回文章列表
+   * */
+  function changeUrl() {
+
+    var cateVal = $("#cateVal").text();
+    var pk;
+    switch (cateVal) {
+      case "成功案例":
+        pk = 2;
+        break;
+      case "项目公示":
+        pk = 5;
+        break;
+      case "行业资讯":
+        pk = 3;
+        break;
+      case "文件下载":
+        pk = 4;
+        break;
+      default:
+        break;
+    }
+    window.location.href = "/category/" + pk + "/";
   }
 </script>
 

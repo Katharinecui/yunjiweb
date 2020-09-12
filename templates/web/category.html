@@ -2,47 +2,50 @@
 {% load staticfiles %}
 {% load web_tags %}
 
-{% block main %}	
+{% block main %}
 
 <div class="photo-box">
-	<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
-		<li><img hidden src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
-		<li><img  hidden src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
-	</ul>
+  <ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;">
+    <li><img hidden src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
+    <li><img hidden src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
+  </ul>
 </div>
 
 {% for post in post_list %}
 
-	{% if forloop.first %}
-		<!--左边导航栏-->
-		<div class="oleft-nav">
-			<div class="oleft-width">
-				<div class="oleft-title">{{ post.category }}</div>
-			</div>
-		</div>
-	{% else %}
-	{% endif %}
+{% if forloop.first %}
+<!--左边导航栏-->
+<div class="oleft-nav">
+  <div class="oleft-width">
+    <div class="oleft-title">{{ post.category }}</div>
+  </div>
+</div>
+{% else %}
+{% endif %}
 
 {% endfor %}
 
 <!--右边内容部分-->
 <div class="oright-width">
 
-	<div class="oright-title"></div>
+  <div class="oright-title"></div>
 
-	<div class="orecent-content" style="margin-top:10px;">
-		<ul>
-			{% for post in post_list %}
-			<a href="{{ post.get_absolute_url }}"><li>
-			<span class="list-title">{{ post.title }}</span>
-			<span class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
-			</li></a>	
-			{% endfor %}
-		</ul>
-	</div>
+  <div class="orecent-content" style="margin-top:10px;">
+    <ul>
+      {% for post in post_list %}
+      <a href="{{ post.get_absolute_url }}">
+        <li>
+          <span class="list-title">{{ post.title }}</span>
+          <span
+            class="list-time">{{ post.created_time.date.year }}/{{ post.created_time.date.month }}/{{ post.created_time.date.day }}</span>
+        </li>
+      </a>
+      {% endfor %}
+    </ul>
+  </div>
 
-	<div>
-		<!--{% if is_paginated %}
+  <div>
+    <!--{% if is_paginated %}
 		<div class="pagination-simple">
 			 如果当前页还有上一页，显示一个上一页的按钮 
 			{% if page_obj.has_previous %}
@@ -56,22 +59,21 @@
 			{% endif %}
 		</div>
 		{% endif %}-->
-	{% if is_paginated %}
-		{{ page_obj.render }}
-	{% endif %}
-	</div>
+    {% if is_paginated %}
+    {{ page_obj.render }}
+    {% endif %}
+  </div>
 </div>
 
-		 <script src="{% static 'web\js\jquery.min.js' %}"> </script>
-      
-       <script>
-		   debugger;
-		 var url=  window.location.pathname;
-		 var flag=url. slice(-2,-1);
-		if(flag==2){
-				$("#photo-ul li img").eq(0).show();
-		}else{
-			$("#photo-ul li img").eq(1).show();
-		}
-	   </script>
-{% endblock main %}	
+<script src="{% static 'web\js\jquery.min.js' %}"> </script>
+
+<script>
+  var url = window.location.pathname;
+  var flag = url.slice(-2, -1);
+  if (flag == 2) {
+    $("#photo-ul li img").eq(0).show();
+  } else {
+    $("#photo-ul li img").eq(1).show();
+  }
+</script>
+{% endblock main %}
