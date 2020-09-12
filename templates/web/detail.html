@@ -3,102 +3,118 @@
 {% load web_tags %}
 
 {% block main %}
-
+<link href="{% static 'web/css/editormd.preview.css' %}" rel="stylesheet" type="text/css">
 <!-- 轮播图片 -->
 <div class="photo-box">
-	<ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;"> 
-		<li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
-		<li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
-		<li><img src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
-	</ul>
-	<!-- 左右切换  -->
-	<div class="left-botton indexs" id="left-botton">&lt;</div>
-	<div class="right-botton indexs" id="right-botton">&gt;</div>	
-</div> 
+  <ul class="photo-ul" id="photo-ul" style="list-style: none; margin: 0; padding: 0;">
+    <li><img src="{% static 'web/images/photo-box03.jpg' %}" width="1000" height="314" /></li>
+    <li><img src="{% static 'web/images/photo-box01.jpg' %}" width="1000" height="314" /></li>
+    <li><img src="{% static 'web/images/photo-box02.jpg' %}" width="1000" height="314" /></li>
+  </ul>
+  <!-- 左右切换  -->
+  <div class="left-botton indexs" id="left-botton">&lt;</div>
+  <div class="right-botton indexs" id="right-botton">&gt;</div>
+</div>
 
 <!--左边导航栏-->
 <div class="oleft-nav">
-	<div class="oleft-width">
-		<div class="oleft-title">{{ post.category }}</div>
-	</div>
+  <div class="oleft-width">
+    <div class="oleft-title">{{ post.category }}</div>
+  </div>
 </div>
 
 <!---右侧内容-->
 <div class="oright-width">
-	<div class="oright-title">{{ post.category }}&nbsp;&gt;&nbsp;文章正文</div>
-	<div class="oright-content" style="height: 100%;">
+  <div class="oright-title">{{ post.category }}&nbsp;&gt;&nbsp;文章正文</div>
+  <div class="oright-content" style="height: 100%;">
 
-		<!---文章部分-->
-		<div class="ocontent-aboutyunji" style="padding-bottom:200px;">
-			<article class="post post-{{ post.pk }}">
+    <!---文章部分-->
+    <div class="ocontent-aboutyunji" style="padding-bottom:200px;">
+      <article class="post post-{{ post.pk }}">
 
-				<header class="oentry-header">
-					<h2 class="oentry-title">{{ post.title }}</h2>
-					<div class="oentry-meta">
-						<time datetime="{{ post.created_time }}">发表日期：{{ post.created_time }}</time>
-					</div>
-				</header>
+        <header class="oentry-header">
+          <h2 class="oentry-title">{{ post.title }}</h2>
+          <div class="oentry-meta">
+            <time datetime="{{ post.created_time }}">发表日期：{{ post.created_time }}</time>
+          </div>
+        </header>
 
-				<div class="oentry-content">{{ post.body |safe }}</div>
+        <div id="pt" class="oentry-content">
+          {{ post.body |safe }}
+        </div>
 
-				</header>
-			</article>
-		</div>
+        </header>
+      </article>
+    </div>
 
-		<div style="float:right; padding-right:20px; line-height:2;">
-			上一篇：
-			</br>
-			下一篇：
-			</br>
-			<a href="#" style="text-decoration:none;">返回文章列表</a>
-		</div>
-	</div>
+    <div style="float:right; padding-right:20px; line-height:2;">
+      上一篇：
+      </br>
+      下一篇：
+      </br>
+      <a href="#" style="text-decoration:none;">返回文章列表</a>
+    </div>
+  </div>
 </div>
-	
+
 <!-- js -->
-<script type="text/javascript">	
-	var imgs = document.getElementById("photo-ul").children; // 找到所有轮播li
-	var leftbotton = document.getElementById("left-botton");
-	var rightbotton = document.getElementById("right-botton");
-	var index = 0;
-	var dingshiqi;
-	chongqi();
-	function chongqi(){
-		dingshiqi = setInterval(function(){
-			index++;
-			if(index==imgs.length){
-				index=0;
-			}
-			for(var i=0;i<imgs.length;i++){
-				imgs[i].style.cssText="z-index:0;";
-			}
-			imgs[index].style.cssText="z-index:100;";
-		},5000);
-	}
-	leftbotton.onclick=function(){
-		clearInterval(dingshiqi);
-		index--;
-		if(index<0){
-			index=imgs.length-1;
-		}
-		for(var i=0;i<imgs.length;i++){
-			imgs[i].style.cssText="z-index:0;";
-		}
-		imgs[index].style.cssText="z-index:100;";
-		chongqi();
-	}
-	rightbotton.onclick=function(){
-		clearInterval(dingshiqi);
-		index++;
-		if(index>imgs.length-1){
-			index=0;
-		}
-		for(var i=0;i<imgs.length;i++){
-			imgs[i].style.cssText="z-index:0;";
-		}
-		imgs[index].style.cssText="z-index:100;";
-		chongqi();
-	}
+<script src="{% static 'web\js\jquery.min.js' %}"> </script>
+<script src="{% static 'web\js\prettify.min.js' %}"> </script>
+<script src="{% static 'web\js\marked.min.js' %}"> </script>
+<script src="{% static 'web\js\editormd.js' %}"> </script>
+<script type="text/javascript">
+  var imgs = document.getElementById("photo-ul").children; // 找到所有轮播li
+  var leftbotton = document.getElementById("left-botton");
+  var rightbotton = document.getElementById("right-botton");
+  var index = 0;
+  var dingshiqi;
+  $(function () {
+    //轮播
+    chongqi();
+    editormd.markdownToHTML("pt", { //article_content是html文档的ID
+      emoji: true,
+      taskList: true,
+    });
+
+  });
+
+
+  function chongqi() {
+    dingshiqi = setInterval(function () {
+      index++;
+      if (index == imgs.length) {
+        index = 0;
+      }
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].style.cssText = "z-index:0;";
+      }
+      imgs[index].style.cssText = "z-index:100;";
+    }, 5000);
+  }
+  leftbotton.onclick = function () {
+    clearInterval(dingshiqi);
+    index--;
+    if (index < 0) {
+      index = imgs.length - 1;
+    }
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].style.cssText = "z-index:0;";
+    }
+    imgs[index].style.cssText = "z-index:100;";
+    chongqi();
+  }
+  rightbotton.onclick = function () {
+    clearInterval(dingshiqi);
+    index++;
+    if (index > imgs.length - 1) {
+      index = 0;
+    }
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].style.cssText = "z-index:0;";
+    }
+    imgs[index].style.cssText = "z-index:100;";
+    chongqi();
+  }
 </script>
 
-{% endblock main %}	
+{% endblock main %}

@@ -2,43 +2,156 @@
 /* CSS Document */
 
 /* 侧边导航*/
-.oleft-width{width: 250px;margin: 0px auto;text-align: center;}
-.oleft-nav{width:250px;overflow:hidden;background-color: #F5F5F5;float:left;}
+.oleft-width {
+  width: 250px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.oleft-nav {
+  width: 250px;
+  overflow: hidden;
+  background-color: #F5F5F5;
+  float: left;
+}
 
 /*导航标题*/
-.oleft-title{font-size: 16px; text-align: center; height:50px; line-height: 50px; color:white; 
-			letter-spacing: 1px;background-color: #68B25D;margin-bottom: 1.5px;}
+.oleft-title {
+  font-size: 16px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  letter-spacing: 1px;
+  background-color: #68B25D;
+  margin-bottom: 1.5px;
+}
 
 /*导航条目*/
-.oleft-nav-item li{height:40px;list-style-type:none;background:url(../images/line2.png) bottom repeat-x;padding-bottom: 2px;}
-.oleft-nav-item li>a{display: block;line-height: 40px;color: black;
-	width: 250px;text-align: center;transition: background-color 0.1s ease-in-out;text-decoration: none;}
+.oleft-nav-item li {
+  height: 40px;
+  list-style-type: none;
+  background: url(../images/line2.png) bottom repeat-x;
+  padding-bottom: 2px;
+}
+
+.oleft-nav-item li>a {
+  display: block;
+  line-height: 40px;
+  color: black;
+  width: 250px;
+  text-align: center;
+  transition: background-color 0.1s ease-in-out;
+  text-decoration: none;
+}
+
 .oleft-nav-item li>a:hover,
-.oleft-nav-item li.current>a{background-color: #68B25D;color:white;}
-#adivInit{background-color: #68B25D;color:white;}
+.oleft-nav-item li.current>a {
+  background-color: #68B25D;
+  color: white;
+}
+
+#adivInit {
+  background-color: #68B25D;
+  color: white;
+}
 
 /* 右边 */
-.oright-width{width:700px; float: right;}
-.oright-title{background-color: #68B25D;height: 50px;color: white;text-align: left;
-	line-height: 50px;overflow: hidden;padding-left: 15px;letter-spacing: 1px;}
+.oright-width {
+  width: 700px;
+  float: right;
+}
+
+.oright-title {
+  background-color: #68B25D;
+  height: 50px;
+  color: white;
+  text-align: left;
+  line-height: 50px;
+  overflow: hidden;
+  padding-left: 15px;
+  letter-spacing: 1px;
+}
 
 /*段落样式*/
-.ocontent-main{text-indent: 30px; line-height: 200%; padding: 10px; margin-top: 0px; text-align:justify;padding-top: 30px;}
+.ocontent-main {
+  text-indent: 30px;
+  line-height: 200%;
+  padding: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  padding-top: 30px;
+}
 
 /*关于云际*/
-.ocontent-aboutyunji{ line-height: 200%;padding:0px;margin-top: 0px;}
+.ocontent-aboutyunji {
+  line-height: 200%;
+  padding: 0px;
+  margin-top: 0px;
+}
 
 /*右边条目*/
-.orecent-content ul{margin: 0px; padding: 0px; padding-left: 5px; list-style-type: none;}
-.orecent-content ul li{position: relative; line-height: 200%; margin-bottom: 10px; border-bottom: 1px dashed #c5c5c5;}
-.orecent-content ul a{ text-decoration: none; color:black; }
-.orecent-content ul a:hover{color: #16437E;}
-.orecent-content li .list-title{overflow:hidden;}
-.orecent-content li .list-time{float: right; padding-right: 5px;}
+.orecent-content ul {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 5px;
+  list-style-type: none;
+}
+
+.orecent-content ul li {
+  position: relative;
+  line-height: 200%;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #c5c5c5;
+}
+
+.orecent-content ul a {
+  text-decoration: none;
+  color: black;
+}
+
+.orecent-content ul a:hover {
+  color: #16437E;
+}
+
+.orecent-content li .list-title {
+  overflow: hidden;
+}
+
+.orecent-content li .list-time {
+  float: right;
+  padding-right: 5px;
+}
 
 /* 文章内容 */
-.opost {background: #fff;padding: 30px 30px 0;}
-.oentry-meta {color: #DDDDDD;font-size: 10px;margin-bottom: 40px;}
-.oentry-content {line-height: 1.9;}
-.oentry-title{text-align:center;line-height:1.6;}
-.oentry-meta{text-align:right;color:#838282;font-size:13px;margin-bottom:20px;}
+.opost {
+  background: #fff;
+  padding: 30px 30px 0;
+}
+
+.oentry-meta {
+  color: #DDDDDD;
+  font-size: 10px;
+  margin-bottom: 40px;
+}
+
+.oentry-content {
+  line-height: 1.9;
+}
+
+.oentry-title {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.oentry-meta {
+  text-align: right;
+  color: #838282;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+p {
+  text-indent: 2em;
+  /*首行缩进*/
+}
