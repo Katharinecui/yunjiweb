@@ -27,8 +27,13 @@
 
 <!--右边内容部分-->
 <div class="oright-width">
+  {% for post in post_list %}
+  {% if forloop.first %}
+  <div class="oright-title">{{ post.category }}</div>
+ {% else %}
+ {% endif %}
 
-  <div class="oright-title"></div>
+ {% endfor %}
 
   <div class="orecent-content" style="margin-top:10px;">
     <ul>
